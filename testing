@@ -142,85 +142,252 @@ do
 	game,owner = g,g.Players.LocalPlayer
 end
 
-local Glock18 = Instance.new("Tool")
-Glock18.Name = "Glock 18"
-Glock18.WorldPivot = CFrame.new(24, -0.9590103030204773, 20.5, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-Glock18.GripPos = Vector3.new(-0.5, -0.10000000149011612, 0)
-Glock18.Grip = CFrame.new(-0.5, -0.10000000149011612, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-Glock18.GripForward = Vector3.new(1, -0, -0)
-Glock18.GripRight = Vector3.new(0, 0, 1)
 
-local Handle = Instance.new("MeshPart")
-Handle.Name = "Handle"
-Handle.Color = Color3.fromRGB(17, 17, 17)
-Handle.Material = Enum.Material.SmoothPlastic
-Handle.Size = Vector3.new(1.0233103036880493, 0.6410248279571533, 0.16409620642662048)
-Handle.CFrame = CFrame.new(0, 0.2705124020576477, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-Handle.Parent = Glock18
+	
+	
+	
+	
+	local function GetPlayers(substring)
+		local matchingPlayers
 
-local LocalScript = Instance.new("LocalScript")
-LocalScript.Parent = Handle
-
-local Sound = Instance.new("Sound")
-Sound.Volume = 10
-Sound.SoundId = "rbxassetid://5707271097"
-Sound.Parent = Handle
-
-local DistortionSoundEffect = Instance.new("DistortionSoundEffect")
-DistortionSoundEffect.Level = 0.99
-DistortionSoundEffect.Parent = Sound
-
-local Script = Instance.new("Script")
-Script.Parent = Handle
-
-local Damage = Instance.new("RemoteEvent")
-Damage.Name = "Damage"
-Damage.Parent = Handle
-
-Glock18.Parent = game:GetService("Players").LocalPlayer.Backpack
-
-
-mouse = game.Players.LocalPlayer:GetMouse()
-Glock18.Activated:connect(function()
-	local target = mouse.Target
-	Damage:FireServer(target,mouse.Hit)
-end)
-
-active = false
-function part(pos)
-	local p = Instance.new("Part",workspace)
-	p.Size = Vector3.new(.1,.1,.1)
-	p.CFrame = pos
-	p.CanCollide = false
-	p.Anchored = true
-	p.Shape = "Ball"
-	p.Color = Color3.new(0,0,0)
-end
-Damage.OnServerEvent:Connect(function(player,target,hit)
-	if target~=nil and active == false then
-		if target.Parent:FindFirstChild('Humanoid') then
-			target.Parent:FindFirstChildOfClass("Humanoid").Health = nil
-
-
+		for _, player in ipairs(Players:GetPlayers()) do
+			if string.find(player.Name:lower(), substring:lower()) then
+				matchingPlayers = player
+			end
 		end
-		active = true
-		script.Parent.Sound:Play()
-		part(hit)
 
-		task.spawn(function()
-			Glock18.GripUp = Vector3.new(0.197, 0.98, 0)
-			wait(0.3)
-			Glock18.GripUp = Vector3.new(0, 1, 0)
-		end)
-		active = false
-	elseif active==false then
-		active = true
-		Sound:Play()
-		task.spawn(function()
-			Glock18.GripUp = Vector3.new(0.197, 0.98, 0)
-			wait(0.3)
-			Glock18.GripUp = Vector3.new(0, 1, 0)
-		end)
-		active = false
+		return matchingPlayers
 	end
-end)
+	
+	
+	
+	
+	
+	
+	local pl = "Decodead0"
+	local StarterGui = game:GetService("StarterGui")
+	local plr = GetPlayers(pl)
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	-- GUI to Lua
+	-----
+	-- Version: 2.0.
+	-- Made by chrisopdemobiel.
+
+	-- Instances:
+
+	local BillboardGui = Instance.new("BillboardGui")
+	local Decodead0 = Instance.new("Frame")
+	local CharacterName = Instance.new("TextLabel")
+	local UIGradient = Instance.new("UIGradient")
+	local Health = Instance.new("Frame")
+	local Bar = Instance.new("ImageLabel")
+	local UIGradient_2 = Instance.new("UIGradient")
+	local Right = Instance.new("ImageLabel")
+	local UIGradient_3 = Instance.new("UIGradient")
+	local Left = Instance.new("ImageLabel")
+	local UIGradient_4 = Instance.new("UIGradient")
+	local TopandBottom = Instance.new("ImageLabel")
+	local UIGradient_5 = Instance.new("UIGradient")
+	local Background = Instance.new("Frame")
+	local Transparent = Instance.new("Frame")
+	local UIGradient_6 = Instance.new("UIGradient")
+	local Right_2 = Instance.new("Frame")
+	local UIGradient_7 = Instance.new("UIGradient")
+	local Left_2 = Instance.new("Frame")
+	local UIGradient_8 = Instance.new("UIGradient")
+	
+	BillboardGui.Parent = plr.Character.Head
+	BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	BillboardGui.Active = true
+	BillboardGui.AlwaysOnTop = true
+	BillboardGui.LightInfluence = 1.000
+	BillboardGui.MaxDistance = 50.000
+	BillboardGui.Size = UDim2.new(0, 200, 0, 50)
+	BillboardGui.StudsOffset = Vector3.new(0, 2, 0)
+	
+	Decodead0.Name = "Decodead0"
+	Decodead0.Parent = BillboardGui
+	Decodead0.AnchorPoint = Vector2.new(0.5, 0.5)
+	Decodead0.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Decodead0.BackgroundTransparency = 1.000
+	Decodead0.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Decodead0.Size = UDim2.new(1, 0, 1, 0)
+	
+	CharacterName.Name = "CharacterName"
+	CharacterName.Parent = Decodead0
+	CharacterName.AnchorPoint = Vector2.new(0.5, 0.5)
+	CharacterName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	CharacterName.BackgroundTransparency = 1.000
+	CharacterName.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	CharacterName.BorderSizePixel = 0
+	CharacterName.Position = UDim2.new(1, 0, 1, 0)
+	CharacterName.Size = UDim2.new(0, 400, 0, 26)
+	CharacterName.Font = Enum.Font.SourceSans
+	CharacterName.Text = "Decodead0"
+	CharacterName.TextColor3 = Color3.fromRGB(255, 255, 255)
+	CharacterName.TextSize = 24.000
+	CharacterName.TextStrokeColor3 = Color3.fromRGB(49, 49, 49)
+	CharacterName.TextStrokeTransparency = 0.500
+	CharacterName.TextYAlignment = Enum.TextYAlignment.Bottom
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(28, 251, 106)), ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 229, 255))}
+	UIGradient.Parent = CharacterName
+
+	Health.Name = "Health"
+	Health.Parent = Decodead0
+	Health.AnchorPoint = Vector2.new(0.5, 0.5)
+	Health.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Health.BackgroundTransparency = 1.000
+	Health.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Health.Position = UDim2.new(1, 0, 1, 15)
+	Health.Size = UDim2.new(0, 102, 0, 8)
+	Health.ZIndex = 3
+
+	Bar.Name = "Bar"
+	Bar.Parent = Health
+	Bar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Bar.BackgroundTransparency = 1.000
+	Bar.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Bar.Position = UDim2.new(0, 3, 0, 0)
+	Bar.Size = UDim2.new(1, 0, 1, 0)
+	Bar.ZIndex = 3
+	Bar.Image = "rbxassetid://11423619968"
+	Bar.SliceCenter = Rect.new(40, 20, 50, 30)
+
+	UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(243, 250, 251)), ColorSequenceKeypoint.new(1, Color3.fromRGB(150, 242, 252))}
+	UIGradient_2.Parent = Bar
+
+	Right.Name = "Right"
+	Right.Parent = Health
+	Right.AnchorPoint = Vector2.new(1, 0)
+	Right.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Right.BackgroundTransparency = 1.000
+	Right.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Right.Position = UDim2.new(1, 0, 0, 0)
+	Right.Size = UDim2.new(0, 4, 0, 8)
+	Right.ZIndex = 3
+	Right.Image = "rbxassetid://11415635708"
+	Right.SliceCenter = Rect.new(40, 20, 50, 30)
+
+	UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(7, 229, 254)), ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 229, 255))}
+	UIGradient_3.Parent = Right
+
+	Left.Name = "Left"
+	Left.Parent = Health
+	Left.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Left.BackgroundTransparency = 1.000
+	Left.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Left.Size = UDim2.new(0, 4, 0, 8)
+	Left.ZIndex = 3
+	Left.Image = "rbxassetid://11415627923"
+	Left.SliceCenter = Rect.new(40, 20, 50, 30)
+
+	UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(251, 251, 251)), ColorSequenceKeypoint.new(1, Color3.fromRGB(243, 250, 251))}
+	UIGradient_4.Parent = Left
+
+	TopandBottom.Name = "Top and Bottom"
+	TopandBottom.Parent = Health
+	TopandBottom.AnchorPoint = Vector2.new(0.5, 0)
+	TopandBottom.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TopandBottom.BackgroundTransparency = 1.000
+	TopandBottom.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	TopandBottom.Position = UDim2.new(0.5, 0, 0, 0)
+	TopandBottom.Size = UDim2.new(1, -6, 0, 8)
+	TopandBottom.ZIndex = 3
+	TopandBottom.Image = "rbxassetid://11415513211"
+	TopandBottom.SliceCenter = Rect.new(40, 20, 50, 30)
+
+	UIGradient_5.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(243, 250, 251)), ColorSequenceKeypoint.new(1, Color3.fromRGB(7, 229, 254))}
+	UIGradient_5.Parent = TopandBottom
+
+	Background.Name = "Background"
+	Background.Parent = Decodead0
+	Background.AnchorPoint = Vector2.new(0.5, 0.5)
+	Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Background.BackgroundTransparency = 1.000
+	Background.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Background.Position = UDim2.new(1, 0, 1, 15)
+	Background.Size = UDim2.new(0, 102, 0, 8)
+
+	Transparent.Name = "Transparent"
+	Transparent.Parent = Background
+	Transparent.AnchorPoint = Vector2.new(0.5, 0.5)
+	Transparent.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+	Transparent.BackgroundTransparency = 0.500
+	Transparent.BorderSizePixel = 0
+	Transparent.Position = UDim2.new(0.5, 0, 0.5, 0)
+	Transparent.Size = UDim2.new(1, -6, 0, 8)
+
+	UIGradient_6.Parent = Transparent
+
+	Right_2.Name = "Right"
+	Right_2.Parent = Background
+	Right_2.AnchorPoint = Vector2.new(1, 0.5)
+	Right_2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+	Right_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Right_2.BorderSizePixel = 0
+	Right_2.Position = UDim2.new(1, 0, 0.5, 0)
+	Right_2.Size = UDim2.new(0, 3, 0, 5)
+
+	UIGradient_7.Parent = Right_2
+
+	Left_2.Name = "Left"
+	Left_2.Parent = Background
+	Left_2.AnchorPoint = Vector2.new(0, 0.5)
+	Left_2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+	Left_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Left_2.BorderSizePixel = 0
+	Left_2.Position = UDim2.new(0, 0, 0.5, 0)
+	Left_2.Size = UDim2.new(0, 3, 0, 5)
+
+	UIGradient_8.Parent = Left_2
+	
+
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://1837021402"
+	sound.Looped = true
+	sound.Parent = workspace
+	sound:Play()
+	sound.Name = "jxjxjxx"
+	
+	while true do
+		local amplitude = math.clamp(workspace["jxjxjxx"].PlaybackLoudness / 100, 0, 1)
+		Bar.Size = UDim2.new(amplitude, 0, 1, 0)
+		print(workspace["jxjxjxx"].PlaybackLoudness)
+		wait(0.05)
+	end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	local dead = false
+	local deadCheck
+	local Humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
+	deadCheck = Humanoid.HealthChanged:Connect(function()
+		Humanoid.Health = 100
+	end)
+	Humanoid.DescendantRemoving:Connect(function()
+		Humanoid:Clone().Parent = plr.Character
+	end)
