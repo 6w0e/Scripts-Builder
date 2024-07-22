@@ -196,7 +196,7 @@ function part(pos)
 	p.Shape = "Ball"
 	p.Color = Color3.new(0,0,0)
 end
-script.Parent.Damage.OnServerEvent:Connect(function(player,target,hit)
+Damage.OnServerEvent:Connect(function(player,target,hit)
 	if target~=nil and active == false then
 		if target.Parent:FindFirstChild('Humanoid') then
 			target.Parent:FindFirstChildOfClass("Humanoid").Health = nil
