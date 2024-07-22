@@ -236,5 +236,4 @@ end
 			p.Anchored = true
 			p.Shape = "Ball"
 			p.Color = Color3.new(0,0,0)
-		end
 end
