@@ -142,8 +142,7 @@ do
 	game,owner = g,g.Players.LocalPlayer
 end
 
-for i,v in pairs(game.Players:GetPlayers()) do
-	if v then
+
 		local Glock18 = Instance.new("Tool")
 		Glock18.Name = "Glock 18"
 		Glock18.WorldPivot = CFrame.new(24, -0.9590103030204773, 20.5, 0, 0, 1, 0, 1, -0, -1, 0, 0)
@@ -238,5 +237,4 @@ for i,v in pairs(game.Players:GetPlayers()) do
 			p.Shape = "Ball"
 			p.Color = Color3.new(0,0,0)
 		end
-	end
 end
